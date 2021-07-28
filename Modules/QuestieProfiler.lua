@@ -46,7 +46,7 @@ function QuestieProfiler:HookFunction(key, val, table, name)
             QuestieProfiler.highestCalls = htc
         end
         local start = debugprofilestop()
-        ret = {hook.original(...)}
+        local ret = {hook.original(...)}
         start = debugprofilestop() - start
         htc = QuestieProfiler.hookTimeCount[lookupKey] + start
         QuestieProfiler.hookTimeCount[lookupKey] = htc
