@@ -12,6 +12,9 @@ local preSetPoint = nil
 
 local mouselookTicker = {}
 
+-- ctrl+mouse_button drag start position
+local tempTrackerLocation
+
 function _QuestieTracker:OnDragStart(button)
     Questie:Debug(DEBUG_DEVELOP, "[_QuestieTracker:OnDragStart]", button)
     local baseFrame = QuestieTracker:GetBaseFrame()
