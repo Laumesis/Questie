@@ -290,8 +290,9 @@ function _QuestieTracker:ConvertSetPointCords(frame, setpoint)
         local setPoint = setpoint
         local xOn = ({frame:GetPoint()})[4]
         local yOn = ({frame:GetPoint()})[5]
-        if not (height or width or preSetPoint or xOn or yOn or setPoint or preSetPoint)then return end
+        if not (height or width or preSetPoint or xOn or yOn or setPoint or preSetPoint) then return end
         if (setPoint ~= preSetPoint) then
+            local xOff, yOff = xOn, yOn
 
             -- To "TOPLEFT" from...
             if setPoint == "TOPLEFT" then
