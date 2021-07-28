@@ -195,28 +195,28 @@ function _QuestieTracker:AutoConvertSetPoint(frame)
 
         -- setPoint Topleft = Down and Right
         if Questie.db[Questie.db.global.questieTLoc].TrackerLocation[4] < 0 and Questie.db[Questie.db.global.questieTLoc].TrackerLocation[5] > yAdj and Questie.db[Questie.db.global.questieTLoc].TrackerLocation[1] ~= "TOPLEFT" then
-            xOff, yOff = _QuestieTracker:ConvertSetPointCords(frame, "TOPLEFT")
+            local xOff, yOff = _QuestieTracker:ConvertSetPointCords(frame, "TOPLEFT")
             Questie.db[Questie.db.global.questieTLoc].TrackerLocation[1] = "TOPLEFT"
             Questie.db[Questie.db.global.questieTLoc].TrackerLocation[4] = xOff
             Questie.db[Questie.db.global.questieTLoc].TrackerLocation[5] = yOff
 
         -- setPoint Topright = Down and Left
         elseif Questie.db[Questie.db.global.questieTLoc].TrackerLocation[4] > 0 and Questie.db[Questie.db.global.questieTLoc].TrackerLocation[5] > yAdj and Questie.db[Questie.db.global.questieTLoc].TrackerLocation[1] ~= "TOPRIGHT" then
-            xOff, yOff = _QuestieTracker:ConvertSetPointCords(frame, "TOPRIGHT")
+            local xOff, yOff = _QuestieTracker:ConvertSetPointCords(frame, "TOPRIGHT")
             Questie.db[Questie.db.global.questieTLoc].TrackerLocation[1] = "TOPRIGHT"
             Questie.db[Questie.db.global.questieTLoc].TrackerLocation[4] = xOff
             Questie.db[Questie.db.global.questieTLoc].TrackerLocation[5] = yOff
 
         -- setPoint Bottomleft = Up and Right
         elseif Questie.db[Questie.db.global.questieTLoc].TrackerLocation[4] < 0 and Questie.db[Questie.db.global.questieTLoc].TrackerLocation[5] < yAdj and Questie.db[Questie.db.global.questieTLoc].TrackerLocation[1] ~= "BOTTOMLEFT" then
-            xOff, yOff = _QuestieTracker:ConvertSetPointCords(frame, "BOTTOMLEFT")
+            local xOff, yOff = _QuestieTracker:ConvertSetPointCords(frame, "BOTTOMLEFT")
             Questie.db[Questie.db.global.questieTLoc].TrackerLocation[1] = "BOTTOMLEFT"
             Questie.db[Questie.db.global.questieTLoc].TrackerLocation[4] = xOff
             Questie.db[Questie.db.global.questieTLoc].TrackerLocation[5] = yOff
 
         -- setPoint Bottomright = Up and Left
         elseif Questie.db[Questie.db.global.questieTLoc].TrackerLocation[4] > 0 and Questie.db[Questie.db.global.questieTLoc].TrackerLocation[5] < yAdj and Questie.db[Questie.db.global.questieTLoc].TrackerLocation[1] ~= "BOTTOMRIGHT" then
-            xOff, yOff = _QuestieTracker:ConvertSetPointCords(frame, "BOTTOMRIGHT")
+            local xOff, yOff = _QuestieTracker:ConvertSetPointCords(frame, "BOTTOMRIGHT")
             Questie.db[Questie.db.global.questieTLoc].TrackerLocation[1] = "BOTTOMRIGHT"
             Questie.db[Questie.db.global.questieTLoc].TrackerLocation[4] = xOff
             Questie.db[Questie.db.global.questieTLoc].TrackerLocation[5] = yOff
