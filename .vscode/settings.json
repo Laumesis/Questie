@@ -2216,6 +2216,7 @@
         "QuestLog_SetSelection",
         "QuestWatch_Update",
         "FauxScrollFrame_GetOffset",
+        "UnitQuestTrivialLevelRange",
         "----------------------------------------------------->LUA API",
         "bit",
         "abs",

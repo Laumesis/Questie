@@ -1,4 +1,3 @@
----@type QuestieDB
 local QuestieDB = QuestieLoader:ImportModule("QuestieDB");
 
 
@@ -103,6 +102,7 @@ QuestieDB.questFlags = {
 }
 
 -- temporary, until we remove the old db funcitons
+---@deprecated
 QuestieDB._questAdapterQueryOrder = {}
 for key, id in pairs(QuestieDB.questKeys) do
     QuestieDB._questAdapterQueryOrder[id] = key

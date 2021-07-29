@@ -3,6 +3,7 @@
 QuestieLoader = {}
 
 ---@class Module
+---@field public private Module
 local moduleClassDefinition = {}
 
 -- ["ModuleName"] = moduleReference
@@ -17,8 +18,9 @@ function QuestieLoader:CreateBlankModule()
     return ret
 end
 
----@param name string @Module name
----@return Module @Module reference
+---@generic T : Module
+---@param name `T` @Module name as string
+---@return T @Module reference as name type
 function QuestieLoader:CreateModule(name)
   if (not modules[name]) then
     modules[name] = QuestieLoader:CreateBlankModule()
@@ -28,8 +30,9 @@ function QuestieLoader:CreateModule(name)
   end
 end
 
----@param name string @Module name
----@return Module @Module reference
+---@generic T : Module
+---@param name `T` @Module name as string
+---@return T @Module reference as name type
 function QuestieLoader:ImportModule(name)
   if (not modules[name]) then
     modules[name] = QuestieLoader:CreateBlankModule()

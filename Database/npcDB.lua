@@ -1,4 +1,3 @@
----@type QuestieDB
 local QuestieDB = QuestieLoader:ImportModule("QuestieDB");
 
 
@@ -90,6 +89,7 @@ QuestieDB.npcFlags = Questie.IsTBC and {
 }
 
 -- temporary, until we remove the old db funcitons
+---@deprecated
 QuestieDB._npcAdapterQueryOrder = {}
 for key, id in pairs(QuestieDB.npcKeys) do
     QuestieDB._npcAdapterQueryOrder[id] = key

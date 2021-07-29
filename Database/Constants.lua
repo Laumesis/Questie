@@ -1,4 +1,3 @@
----@type QuestieDB
 local QuestieDB = QuestieLoader:ImportModule("QuestieDB")
 
 QuestieDB.sortKeys = {
@@ -28,9 +27,7 @@ QuestieDB.sortKeys = {
     BREWFEST = -370,
 }
 
-local isTBC = string.byte(GetBuildInfo(), 1) == 50
-
-QuestieDB.factionTemplate = isTBC and { -- [id] = EnemyGroup
+QuestieDB.factionTemplate = Questie.IsTBC and { -- [id] = EnemyGroup
     [1] = 12,
     [2] = 10,
     [3] = 12,

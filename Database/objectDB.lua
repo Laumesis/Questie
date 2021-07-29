@@ -1,4 +1,3 @@
----@type QuestieDB
 local QuestieDB = QuestieLoader:ImportModule("QuestieDB");
 
 
@@ -34,6 +33,7 @@ QuestieDB.objectCompilerOrder = { -- order easily skipable data first for effici
 }
 
 -- temporary, until we remove the old db funcitons
+---@deprecated
 QuestieDB._objectAdapterQueryOrder = {}
 for key, id in pairs(QuestieDB.objectKeys) do
     QuestieDB._objectAdapterQueryOrder[id] = key
