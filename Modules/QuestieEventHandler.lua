@@ -3,7 +3,7 @@ local GetNumQuestLogEntries = GetNumQuestLogEntries or C_QuestLog.GetNumQuestLog
 local IsQuestFlaggedCompleted = IsQuestFlaggedCompleted or C_QuestLog.IsQuestFlaggedCompleted
 
 --- GLOBAL ---
----@class QuestieEventHandler
+---@class QuestieEventHandler : Module
 local QuestieEventHandler = QuestieLoader:CreateModule("QuestieEventHandler")
 local _EventHandler = {}
 

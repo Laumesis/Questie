@@ -77,7 +77,7 @@ function QuestieComms.data:GetTooltip(tooltipKey)
     return tooltipData;
 end
 
----@param questId number
+---@param questId QuestId
 ---@param playerName string
 ---@param objectives table @Contains objectives o[index].text
 function QuestieComms.data:RegisterTooltip(questId, playerName, objectives)

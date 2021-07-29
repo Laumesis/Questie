@@ -5,7 +5,7 @@ local IsQuestComplete = IsQuestComplete or C_QuestLog.IsComplete
 local GetQuestGreenRange = GetQuestGreenRange or UnitQuestTrivialLevelRange
 local IsQuestFlaggedCompleted = IsQuestFlaggedCompleted or C_QuestLog.IsQuestFlaggedCompleted
 
----@class QuestieQuest
+---@class QuestieQuest : Module
 local QuestieQuest = QuestieLoader:CreateModule("QuestieQuest")
 local _QuestieQuest = QuestieQuest.private
 -------------------------
@@ -31,7 +31,6 @@ local QuestieHash = QuestieLoader:ImportModule("QuestieHash")
 local QuestiePlayer = QuestieLoader:ImportModule("QuestiePlayer")
 ---@type TaskQueue
 local TaskQueue = QuestieLoader:ImportModule("TaskQueue")
----@type QuestieDB
 local QuestieDB = QuestieLoader:ImportModule("QuestieDB")
 ---@type QuestieCorrections
 local QuestieCorrections = QuestieLoader:ImportModule("QuestieCorrections")
@@ -79,6 +78,7 @@ function QuestieQuest:Initialize()
     QuestieHash:LoadQuestLogHashes()
 end
 
+---@param showIcons boolean
 function QuestieQuest:ToggleNotes(showIcons)
     Questie:Debug(DEBUG_DEVELOP, "[QuestieQuest:ToggleNotes] showIcons:", showIcons)
     QuestieQuest:GetAllQuestIds() -- add notes that weren't added from previous hidden state

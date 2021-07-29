@@ -1,4 +1,4 @@
----@class QuestieNPCFixes
+---@class QuestieNPCFixes : Module
 local QuestieNPCFixes = QuestieLoader:CreateModule("QuestieNPCFixes")
 -------------------------
 --Import modules.

@@ -1,4 +1,4 @@
----@class QuestieTooltips
+---@class QuestieTooltips : Module
 local QuestieTooltips = QuestieLoader:CreateModule("QuestieTooltips");
 local _QuestieTooltips = QuestieTooltips.private
 -------------------------

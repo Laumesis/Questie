@@ -1,4 +1,4 @@
----@class QuestieCorrections
+---@class QuestieCorrections : Module
 local QuestieCorrections = QuestieLoader:CreateModule("QuestieCorrections")
 -------------------------
 --Import modules.

@@ -3,7 +3,32 @@ local GetQuestLogIndexByID = GetQuestLogIndexByID or C_QuestLog.GetLogIndexForQu
 local IsQuestComplete = IsQuestComplete or C_QuestLog.IsComplete
 local GetQuestGreenRange = GetQuestGreenRange or UnitQuestTrivialLevelRange
 
----@class QuestieDB
+---@class QuestieDB : Module
+----from questDB.lua
+---@field questKeys table<string, number>
+---@field questKeysReversed table<number, string>
+---@field questCompilerTypes table<string, string>
+---@field questCompilerOrder table<number, string>
+---@field questFlags table<string, number>
+---from objectDB.lua
+---@field objectKeys table<string, number>
+---@field objectKeysReversed table<number, string>
+---@field objectCompilerTypes table<string, string>
+---@field objectCompilerOrder table<number, string>
+---from itemDB.lua
+---@field itemKeys table<string, number>
+---@field itemKeysReversed table<number, string>
+---@field itemCompilerTypes table<string, string>
+---@field itemCompilerOrder table<number, string>
+---from npcDB.lua
+---@field npcKeys table<string, number>
+---@field npcKeysReversed table<number, string>
+---@field npcCompilerTypes table<string, string>
+---@field npcCompilerOrder table<number, string>
+---@field npcFlags table<string, number>
+---from Constants.lua
+---@field sortKeys table<string, number>
+---@field factionTemplate table<number, number> @[id] = EnemyGroup
 local QuestieDB = QuestieLoader:CreateModule("QuestieDB")
 local _QuestieDB = QuestieDB.private
 
@@ -276,35 +301,35 @@ function QuestieDB:GetItem(itemId)
     return item
 end
 
----@param questId number
+---@param questId QuestId
 ---@return boolean
 function QuestieDB:IsRepeatable(questId)
     local flags = QuestieDB.QueryQuestSingle(questId, "specialFlags")
     return flags and mod(flags, 2) == 1
 end
 
----@param questId number
+---@param questId QuestId
 ---@return boolean
 function QuestieDB:IsDungeonQuest(questId)
     local questType, _ = QuestieDB:GetQuestTagInfo(questId)
     return questType == 81
 end
 
----@param questId number
+---@param questId QuestId
 ---@return boolean
 function QuestieDB:IsRaidQuest(questId)
     local questType, _ = QuestieDB:GetQuestTagInfo(questId)
     return questType == 62
 end
 
----@param questId number
+---@param questId QuestId
 ---@return boolean
 function QuestieDB:IsPvPQuest(questId)
     local questType, _ = QuestieDB:GetQuestTagInfo(questId)
     return questType == 41
 end
 
----@param questId number
+---@param questId QuestId
 ---@return boolean
 function QuestieDB:IsAQWarEffortQuest(questId)
     return QuestieQuestBlacklist.AQWarEffortQuests[questId]
@@ -318,7 +343,7 @@ end
 
 --- Wrapper function for the GetQuestTagInfo API to correct
 --- quests that are falsely marked by Blizzard
----@param questId number
+---@param questId QuestId
 ---@return table<number, string>
 function QuestieDB:GetQuestTagInfo(questId)
     local questType, questTag = GetQuestTagInfo(questId)
@@ -331,7 +356,7 @@ function QuestieDB:GetQuestTagInfo(questId)
     return questType, questTag
 end
 
----@param questId number
+---@param questId QuestId
 ---@return number @Complete = 1, Failed = -1, Incomplete = 0
 function QuestieDB:IsComplete(questId)
     local questLogIndex = GetQuestLogIndexByID(questId)
@@ -349,7 +374,7 @@ function QuestieDB:IsComplete(questId)
     return 0
 end
 
----@param questId number
+---@param questId QuestId
 ---@return boolean
 function QuestieDB:IsActiveEventQuest(questId)
     return QuestieEvent.activeQuests[questId] == true
@@ -370,7 +395,7 @@ function QuestieDB:IsExclusiveQuestInQuestLogOrComplete(exclusiveTo)
     return false
 end
 
----@param questId number
+---@param questId QuestId
 ---@param minLevel number
 ---@param maxLevel number
 ---@return boolean
@@ -466,7 +491,7 @@ function QuestieDB:IsProfessionQuest(questId)
     return requiredSkill ~= nil and next(requiredSkill)
 end
 
----@param questId number
+---@param questId QuestId
 ---@return boolean
 function QuestieDB:IsDoable(questId)
 
@@ -587,7 +612,7 @@ function QuestieDB:GetQuest(questId) -- /dump QuestieDB:GetQuest(867)
     end
 
     ---@class ObjectiveIndex
-    ---@class QuestId
+    ---@class QuestId @Pseudo class for variable type checks
 
     ---@class Quest
     ---@field public Id number
@@ -614,7 +639,7 @@ function QuestieDB:GetQuest(questId) -- /dump QuestieDB:GetQuest(867)
     ---@field public startedBy table
     ---@field public triggerEnd table
     ---@field public zoneOrSort number
-
+    ---@field private parentID number
     local QO = {}
     QO.Id = questId --Key
     for stringKey, intKey in pairs(QuestieDB.questKeys) do

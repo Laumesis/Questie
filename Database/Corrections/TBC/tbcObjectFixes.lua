@@ -1,4 +1,4 @@
----@class QuestieTBCObjectFixes
+---@class QuestieTBCObjectFixes : Module
 local QuestieTBCObjectFixes = QuestieLoader:CreateModule("QuestieTBCObjectFixes")
 
 ---@type QuestieDB

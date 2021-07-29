@@ -1,14 +1,13 @@
 --- COMPATIBILITY ---
 local GetNumQuestLogEntries = GetNumQuestLogEntries or C_QuestLog.GetNumQuestLogEntries
 
----@class QuestieLib
+---@class QuestieLib : Module
 local QuestieLib = QuestieLoader:CreateModule("QuestieLib")
 
----@type QuestieDB
 local QuestieDB = QuestieLoader:ImportModule("QuestieDB")
----@type QuestiePlayer
+---@type QuestiePlayer @TODO remove
 local QuestiePlayer = QuestieLoader:ImportModule("QuestiePlayer")
----@type l10n
+---@type l10n @TODO remove
 local l10n = QuestieLoader:ImportModule("l10n")
 
 QuestieLib.AddonPath = "Interface\\Addons\\Questie\\"
@@ -251,7 +250,7 @@ end
 
 --- There are quests in TBC which have a quest level of -1. This indicates that the quest level is the
 --- same as the player level. This function should be used whenever accessing the quest or required level.
----@param questId number
+---@param questId QuestId
 ---@return table<number, number> questLevel and requiredLevel
 function QuestieLib:GetTbcLevel(questId)
     local questLevel, requiredLevel = unpack(QuestieDB.QueryQuest(questId, "questLevel", "requiredLevel"))
@@ -269,7 +268,7 @@ function QuestieLib:GetTbcLevel(questId)
 end
 
 ---@param id QuestId @The quest ID
----@param name string @The (localized) name of the quest
+----@param name string @The (localized) name of the quest
 ---@param level number @The quest level
 ---@param blizzLike boolean @True = [40+], false/nil = [40D/R]
 function QuestieLib:GetLevelString(id, _, level, blizzLike)

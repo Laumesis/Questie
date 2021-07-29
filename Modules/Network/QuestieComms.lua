@@ -1,7 +1,7 @@
 --- COMPATIBILITY ---
 local GetNumQuestLogEntries = GetNumQuestLogEntries or C_QuestLog.GetNumQuestLogEntries
 
----@class QuestieComms
+---@class QuestieComms : Module
 local QuestieComms = QuestieLoader:CreateModule("QuestieComms");
 local _QuestieComms = QuestieComms.private
 -------------------------
@@ -756,7 +756,7 @@ function _QuestieComms:RequestQuestLog(eventName) -- broadcast quest update to g
     end
 end
 
----@param questId number
+---@param questId QuestId
 ---@return QuestPacket
 function QuestieComms:CreateQuestDataPacket(questId)
     local questObject = QuestieDB:GetQuest(questId);

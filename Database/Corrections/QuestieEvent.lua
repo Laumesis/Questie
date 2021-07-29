@@ -32,7 +32,7 @@ Pilgrim's Bounty    22nd Nov - 28th Nov    Thanksgiving
 Feast of Winter Veil    15th Dec - 2nd Jan    Christmas
 ]] --
 
----@class QuestieEvent
+---@class QuestieEvent : Module
 local QuestieEvent = QuestieLoader:CreateModule("QuestieEvent")
 local _QuestieEvent = QuestieEvent.private
 QuestieEvent.activeQuests = {}

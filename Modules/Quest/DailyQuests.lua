@@ -115,14 +115,14 @@ function _DailyQuests:HandleDailyQuests(possibleQuestIds, currentQuestId, type)
     end
 end
 
----@param questId number
+---@param questId QuestId
 ---@return nil
 function _DailyQuests:HideDailyQuest(questId)
     QuestieMap:UnloadQuestFrames(questId);
     QuestieTooltips:RemoveQuest(questId);
 end
 
----@param questId number
+---@param questId QuestId
 ---@return nil
 function _DailyQuests:ShowDailyQuest(questId)
     if (not QuestieMap.questIdFrames[questId]) then
@@ -130,7 +130,7 @@ function _DailyQuests:ShowDailyQuest(questId)
     end
 end
 
----@param questId number
+---@param questId QuestId
 ---@return boolean
 function DailyQuests:IsActiveDailyQuest(questId)
     local hiddenQuests = Questie.db.char.hiddenDailies
@@ -141,7 +141,7 @@ function DailyQuests:IsActiveDailyQuest(questId)
         hiddenQuests.pvp[questId]);
 end
 
----@param questId number
+---@param questId QuestId
 ---@return boolean
 function DailyQuests:IsDailyQuest(questId)
     return nhcDailyIds[questId] ~= nil or
